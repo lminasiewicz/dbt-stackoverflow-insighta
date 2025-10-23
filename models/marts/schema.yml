@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_questions_per_tag
+    description: | 
+      Aggregated statistics per tag for Stack Overflow questions.
+      Shows how many questions there are, and how many are unanswered.
+    columns:
+      - name: tag
+        description: The tag (topic) that has been added to questions.
+        tests:
+          - not_null
+          - unique
+      - name: total_questions
+        description: Number of questions with the tag.
+        tests:
+          - not_null
+      - name: unanswered_questions
+        description: Number of questions with the tag but without a featured answer.
+        tests:
+          - not_null

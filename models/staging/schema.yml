@@ -1,13 +1,5 @@
 version: 2
 
-#id AS question_id,
-#    tags,
-#    answer_count,
-#    accepted_answer_id,
-#    view_count,
-#    score,
-#    creation_date
-
 models:
   - name: stg_posts_questions
     description: "Simplified version of the raw posts_questions table."
@@ -17,8 +9,11 @@ models:
         tests:
           - not_null
           - unique
-      - name: tags
+      - name: tags_arr
         description: "Tags applied to the question, split by |."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "ARRAY_LENGTH(tags_arr) IS NOT NULL" # test for being an array
       - name: answer_count
         description: "Number of answers given to the question."
       - name: accepted_answer_id
