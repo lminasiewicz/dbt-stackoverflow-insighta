@@ -1,0 +1,49 @@
+version: 2
+
+#id AS question_id,
+#    tags,
+#    answer_count,
+#    accepted_answer_id,
+#    view_count,
+#    score,
+#    creation_date
+
+models:
+  - name: stg_posts_questions
+    description: "Simplified version of the raw posts_questions table."
+    columns:
+      - name: question_id
+        description: "Unique identifier of the question."
+        tests:
+          - not_null
+          - unique
+      - name: tags
+        description: "Tags applied to the question, split by |."
+      - name: answer_count
+        description: "Number of answers given to the question."
+      - name: accepted_answer_id
+        description: "Indicates the accepted answer (null if no answer has been accepted)."
+      - name: view_count
+        description: "Number of times the post has been viewed by users."
+      - name: score
+        description: "Positive votes minus negative votes given to the post by users."
+      - name: creation_date
+        description: "Timestamp indicating when the answer was posted."
+  
+
+  - name: stg_posts_answers
+    description: "Simplified version of the raw posts_answers table."
+    columns:
+      - name: answer_id
+        description: "Unique identifier of the answer."
+        tests:
+          - not_null
+          - unique
+      - name: parent_id
+        description: "Unique identifier of the parent question."
+        tests:
+          - not_null
+      - name: score
+        description: "Positive votes minus negative votes given to the post by users."
+      - name: creation_date
+        description: "Timestamp indicating when the answer was posted."

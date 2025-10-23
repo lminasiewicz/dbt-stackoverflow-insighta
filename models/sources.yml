@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: stackoverflow
+    schema: stackoverflow
+    tables:
+      - name: posts_questions
+      - name: posts_answers
