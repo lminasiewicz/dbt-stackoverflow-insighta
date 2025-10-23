@@ -1,0 +1,27 @@
+models:
+  - name: int_questions_per_tag
+    description: |
+      Intermediate model that expands each question into one row per tag.
+      Joins question-level metadata (e.g. view count, score) with its associated tags.
+    columns:
+      - name: tag
+        description: The individual tag extracted from the question's tag list.
+        tests:
+          - not_null
+      - name: question_id
+        description: Unique identifier for the question post.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_posts_questions')
+              field: question_id
+      - name: answer_count
+        description: Total number of answers for the question.
+      - name: accepted_answer_id
+        description: The ID of the accepted answer (null if no answer has been accepted).
+      - name: view_count
+        description: Number of times the question has been viewed by users.
+      - name: score
+        description: The score (upvotes - downvotes) of the question.
+      - name: creation_date
+        description: The timestamp when the question was created.
