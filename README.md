@@ -1,15 +1,5 @@
-Welcome to your new dbt project!
+If you're reading this, hi!
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Most of the work has been done in the `models/` directory.
+At one point I use a function from dbt_utils library. Please note that dbt_packages is in .gitignore - run dbt deps.
+For any additional information regarding the project, please refer to the ![Google Doc](https://docs.google.com/document/d/1hEEuRDSqQ6GbLvS1jkzMtQbqdpRGbk7IWctQle-xBqI/edit?usp=sharing) I'm sending as part of the assessment.
